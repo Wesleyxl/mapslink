@@ -9,6 +9,11 @@
     padding: 45px;
     margin: 0 auto;
 }
+@media (max-width: 500px) {
+    .contact {
+        padding: 45px 0px;
+    }
+}
 .contact h1 {
     margin-bottom: 20px;
 }
@@ -17,6 +22,14 @@
     background: #fff;
     padding: 5px 15px;
     border-radius: 10px;
+}
+@media (max-width: 500px) {
+    .contact .btn-area {
+        display: flex;
+    }
+    .contact .btn-area button {
+        margin: 0 auto 40px auto;
+    }
 }
 
 .contact .form-area {
