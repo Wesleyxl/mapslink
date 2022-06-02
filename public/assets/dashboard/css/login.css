@@ -1,0 +1,11 @@
+#login .img-area {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+}
+
+#login .img-area img {
+    width: 100%;
+}

@@ -1,0 +1,303 @@
+/* GERAL */
+:root {
+    --primary-color: #1A3586;
+    --secondary-color: #4A73DC;
+}
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+* {
+    outline: 0;
+    box-sizing: border-box;
+}
+a:hover {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+.highlights {
+    overflow-x: hidden !important;
+}
+/* END GERAL */
+/* HEADER */
+header {
+    width: 100%;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: transparent;
+    transition: all ease .5s;
+    background: transparent;
+    filter: none;
+}
+header.header-appear {
+    background: linear-gradient(90deg, #1A3586 28.16%, #1A3586 40%, #4166D5 82.63%, #4A73DC 89.09%);
+    filter: drop-shadow(0px 6px 8px rgba(26, 53, 134, 0.95));
+}
+header .mobile-menu {
+    display: none;
+}
+header .mobile-menu .navigation {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1A3586 28.16%, #1A3586 40%, #4166D5 82.63%, #4A73DC 89.09%);
+    padding: 0 30px;
+}
+header .mobile-menu .navigation .logo {
+    width: 100%;
+    max-width: 184px;
+}
+header .mobile-menu .navigation .logo img {
+    width: 100%;
+}
+header .mobile-menu .navigation button {
+    background: none;
+    color: #ffffff;
+    border: none;
+    font-size: 40px;
+}
+header .mobile-menu .navigation button .icon-button {
+    transition: all ease .5s;
+}
+header .mobile-menu .navigation button .off {
+    display: none;
+}
+
+header .mobile-menu nav {
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100vh;
+    background: linear-gradient(90deg, #1A3586 28.16%, #1A3586 40%, #4166D5 82.63%, #4A73DC 89.09%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease .5s;
+}
+header .mobile-menu .open {
+    left: 0;
+}
+header .mobile-menu nav ul li {
+    margin-bottom: 15px;
+}
+header .mobile-menu nav ul li a {
+    font-size: 30px;
+    color: #ffffff;
+    position: relative;
+}
+header .mobile-menu nav ul li .active {
+    font-weight: bold;
+}
+header .mobile-menu nav ul li .active::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -3px;
+    border-radius: 2px;
+    background: #ffffff;
+    transform: scale3d(1,1,1);
+}
+header .mobile-menu nav ul li .active::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    left: 25%;
+    bottom: -8px;
+    border-radius: 2px;
+    background: #ffffff;
+    transform: scale3d(1,1,1);
+}
+header .desktop-menu {
+    width: 100%;
+    max-width: 1500px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .desktop-menu .logo {
+    width: 100%;
+    max-width: 184px;
+}
+header .desktop-menu .logo img {
+    width: 100%;
+}
+header .desktop-menu nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+header .desktop-menu nav ul li {
+    margin: 0 10px;
+}
+header .desktop-menu nav ul li a {
+    font-size: 20px;
+    position: relative;
+    color: #FFFFFF;
+}
+header .desktop-menu nav ul li a:hover {
+    font-weight: bold;
+}
+header .desktop-menu nav ul li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -3px;
+    border-radius: 2px;
+    background: #ffffff;
+    transform: scale3d(0,1,1);
+    transform-origin: center;
+    transition: all ease .5s;
+}
+header .desktop-menu nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    left: 25%;
+    bottom: -8px;
+    border-radius: 2px;
+    background: #ffffff;
+    transform: scale3d(0,1,1);
+    transform-origin: center;
+    transition: all ease .5s;
+}
+header .desktop-menu nav ul li a:hover::before {
+    transform: scale3d(1,1,1);
+}
+header .desktop-menu nav ul li a:hover::after {
+    transform: scale3d(1,1,1);
+}
+header .desktop-menu nav ul li .active {
+    font-weight: bold;
+}
+header .desktop-menu nav ul li .active::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -3px;
+    border-radius: 2px;
+    background: #ffffff;
+    transform: scale3d(1,1,1);
+}
+header .desktop-menu nav ul li .active::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    left: 25%;
+    bottom: -8px;
+    border-radius: 2px;
+    background: #ffffff;
+    transform: scale3d(1,1,1);
+}
+@media (max-width: 760px) {
+    header .desktop-menu {
+        display: none;
+    }
+    header .mobile-menu {
+        display: flex;
+    }
+}
+/* END HEADER */
+
+/* FOOTER */
+footer {
+    width: 100%;
+    min-height: 215px;
+    background: linear-gradient(270deg, #211A86 46.88%, #4A73DC 75%);
+}
+footer .title {
+    text-align: center;
+    padding-top: 23px;
+}
+footer .title .text h5 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+footer .title ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+footer .title ul li a {
+    color: #ffffff;
+    font-size: 25px;
+    margin: 0 10px;
+}
+footer .links {
+    padding-top: 20px;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 760px) {
+    footer .links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+footer .links ul {
+    padding: 0;
+    margin: 0;
+}
+footer .links ul li {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+footer .links ul li a {
+    color: #ffffff;
+}
+footer .links ul li a i {
+    margin-right: 10px;
+}
+footer .copy-area {
+    width: 100%;
+    padding: 5px 0;
+    margin-top: 10px;
+    text-align: center;
+    background: #fffffd;
+}
+footer .copy-area p {
+    margin: 0;
+    padding: 0;
+    color: #000000;
+}
+footer .copy-area span {
+    margin-left: 40px;
+}
+@media (max-width: 760px) {
+    footer .copy-area span {
+        margin-left: 0;
+    }
+}
+footer .copy-area span a {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+/* FOOTER */

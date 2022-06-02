@@ -1,0 +1,195 @@
+/** GERAL **/
+:root {
+    --primary-color: #1A3586;
+    --secondary-color: #4A73DC;
+}
+
+.company .card,
+.category .card {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+table button {
+    width: 100%;
+    max-width: 75px;
+}
+
+
+table tr:hover {
+    background-color: rgba(0,0,0,.1) !important;
+}
+
+.table .table-icons {
+    width: 82px;
+    display: flex;
+    justify-content: space-between;
+}
+.table .table-icons a,
+.table .table-icons button {
+    max-width: 40px;
+}
+
+.card .card-header {
+    height: 50px;
+}
+.card .card-header .search-area {
+    max-width: 300px;
+    height: 38px;
+    position: absolute;
+    right: 15px;
+    top: calc(19px - 25%);
+}
+.card .card-header .search-area button {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+}
+
+.fade {
+    transition: opacity 0.5s linear !important;
+}
+
+/*create area */
+form .card {
+    margin-bottom: 15px;
+}
+form .card label {
+    margin-bottom: 0;
+}
+
+form .img-area img {
+    max-width: 400px;
+}
+
+.email-area ul li a.active {
+    color: #007bff!important;
+}
+
+
+/* Highlights */
+.highlights {
+    width: 100%;
+    min-height: 550px;
+    background-image: url(../img/home/bg-destaques-banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 15px 0;
+}
+.highlights .title-area {
+    border-bottom: 1px solid #ffffff;
+}
+.highlights .title-area h4 {
+    font-size:30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.highlights .content {
+    width: 100%;
+    overflow: hidden;
+}
+.highlights .content .card-highlights {
+    width: 100%;
+    max-width: 260px;
+    height: 330px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    background: #ffffff;
+    margin: 0 auto;
+}
+.highlights .content .card-highlights .card-highlights-header {
+    position: relative;
+    border-bottom: 1px solid #c4c4c4;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+    max-height: 170px;
+}
+.highlights .content .card-highlights .card-highlights-header .link {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 40px);
+    width: 80px;
+    height: 30px;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 20;
+    opacity: 0;
+    transition: ease .5s;
+}
+.highlights .content .card-highlights .card-highlights-header .link a {
+    color: #ffffff;
+}
+.highlights .content .card-highlights .card-highlights-header:hover .link {
+    opacity: 1;
+}
+.highlights .content .card-highlights .card-highlights-header:hover img {
+    transform: scale(1.3);
+}
+.highlights .content .card-highlights .card-highlights-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0,.4);
+    z-index: 2;
+    border-radius: 10px;
+}
+.highlights .content .card-highlights .card-highlights-header .top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 30px;
+    background: rgba(0, 0, 0,.4);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.highlights .content .card-highlights .card-highlights-header .top .star {
+    color: #F9CA0A;
+}
+.highlights .content .card-highlights .card-highlights-header .top .button {
+    width: 87px;
+    height: 24px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.highlights .content .card-highlights .card-highlights-header .top .button  p {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 14px;
+}
+.highlights .content .card-highlights .card-highlights-header img {
+    width: 100%;
+    transition: ease .5s;
+}
+.highlights .content .card-highlights .card-highlights-body {
+    padding: 10px 15px;
+    text-indent: 10px;
+}
+.highlights .content .card-highlights .card-highlights-body .title {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.highlights .swiper-button-next2,
+.highlights .swiper-button-prev2 {
+    position: absolute;
+    font-size: 50px;
+    color: #ffffff;
+}
+/* End Highlights */

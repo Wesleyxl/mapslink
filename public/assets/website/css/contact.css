@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #1A3586;
+    --secondary-color: #4A73DC;
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: 300px;
+    background-image: url(../img/banner-pages.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: flex-end;
+}
+.banner .title {
+    padding-bottom: 20px;
+}
+.banner .title h1 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.banner .title p {
+    font-size: 20px;
+    color: #ffffff;
+}
+.banner .title a {
+    color: #ffffff;
+}
+.banner .title a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+/* End Banner */
+
+/* Contact */
+.contact {
+    margin: 40px 0;
+}
+.contact .title h1 {
+    font-size: 25px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.contact .form-area {
+    border: 1px solid #c4c4c4;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.contact .form-area .btn-area {
+    margin-top: 25px;
+}
+/* End Contact */
