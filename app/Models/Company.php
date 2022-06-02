@@ -11,20 +11,8 @@ class Company extends Model
 
     protected $fillable = [
         'name',
-        'email',
-        'phone',
-        'cellphone',
-        'code',
         'description',
-        'cep',
-        'uf',
-        'city',
-        'neighborhood',
-        'street',
-        'img',
-        'stars',
         'url',
-        'website',
         'map'
     ];
 
@@ -33,20 +21,10 @@ class Company extends Model
     {
         $company = new Company();
         $company['name'] = $request['name'];
-        $company['email'] = $request['email'];
-        $company['phone'] = $request['phone'];
-        $company['cellphone'] = $request['cellphone'];
         $company['description'] = $request['description'];
-        $company['code'] = $request['code'];
-        $company['cep'] = $request['cep'];
-        $company['uf'] = $request['uf'];
-        $company['city'] = $request['city'];
-        $company['neighborhood'] = $request['neighborhood'];
-        $company['street'] = $request['street'];
-        $company['number'] = $request['number'];
-        $company['url'] = $request['url'];
-        $company['website'] = $request['website'];
         $company['map'] = $request['map'];
+        $company['url'] = $request['url'];
+
 
         if ($request->hasFile('img')) {
             $image = $request->file('img');
@@ -75,20 +53,9 @@ class Company extends Model
         }
 
         $company['name'] = $request['name'];
-        $company['email'] = $request['email'];
-        $company['phone'] = $request['phone'];
-        $company['cellphone'] = $request['cellphone'];
         $company['description'] = $request['description'];
-        $company['code'] = $request['code'];
-        $company['cep'] = $request['cep'];
-        $company['uf'] = $request['uf'];
-        $company['city'] = $request['city'];
-        $company['neighborhood'] = $request['neighborhood'];
-        $company['street'] = $request['street'];
-        $company['number'] = $request['number'];
-        $company['url'] = $request['url'];
-        $company['website'] = $request['website'];
         $company['map'] = $request['map'];
+        $company['url'] = $request['url'];
 
         if ($request->hasFile('img')) {
 

@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Email;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -48,7 +51,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:256',
+            'email' => 'required|string'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator->errors());
+        }
+
+        $user = User::find(Auth::user()->id);
+        $user['name'] = $request['name'];
+        $user['email'] = $request['email'];
+        if ($request['password'] != null || $request['password'] != '') {
+            $user['password'] = Hash::make($request['password']);
+        }
+
+        if ($user->save()) {
+            return redirect('adm/user')->with('success', 'Usuário editado com sucesso!');
+        } else {
+            return redirect()->back()->with('error', 'Desculpe, algo deu errado durante sua solicitação. Tente outra vez');
+        }
     }
 
     /**

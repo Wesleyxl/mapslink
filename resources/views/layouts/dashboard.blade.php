@@ -144,57 +144,7 @@
                             </li>
                             <li class="nav-header">Páginas</li>
 
-                            <!-- category -->
-                            <li class="nav-item @yield('ul-category')">
-                                <a href="#" class="nav-link @yield('li-category')">
-                                    <i class="fa-solid fa-list nav-icon"></i>
-                                    <p>
-                                        Categorias
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{ route('dashboard-category-create') }}" class="nav-link @yield('a-category-create')">
-                                            <i class="fas fa-plus nav-icon"></i>
-                                            <p>Cadastrar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('dashboard-category') }}" class="nav-link @yield('a-category')">
-                                            <i class="fa-solid fa-eye"></i>
-                                            <p>Visualizar</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- end category -->
 
-                            <!-- subcategory -->
-                            <li class="nav-item @yield('ul-subcategory')">
-                                <a href="#" class="nav-link @yield('li-subcategory')">
-                                    <i class="fa-solid fa-list nav-icon"></i>
-                                    <p>
-                                        Subcategorias
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{ route('dashboard-subcategory-create') }}" class="nav-link @yield('a-subcategory-create')">
-                                            <i class="fas fa-plus nav-icon"></i>
-                                            <p>Cadastrar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('dashboard-subcategory') }}" class="nav-link @yield('a-subcategory')">
-                                            <i class="fa-solid fa-eye"></i>
-                                            <p>Visualizar</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- end subcategory -->
 
                             <!-- company -->
                             <li class="nav-item @yield('ul-company')">
@@ -222,25 +172,6 @@
                             </li>
                             <!-- end company -->
 
-                            <!-- highlights -->
-                            <li class="nav-item @yield('ul-highlight')">
-                                <a href="#" class="nav-link @yield('li-highlight')">
-                                    <i class="fas fa-star nav-icon"></i>
-                                    <p>
-                                        Destaque
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{ route('dashboard-highlight') }}" class="nav-link @yield('a-highlight')">
-                                            <i class="fa-solid fa-eye"></i>
-                                            <p>Visualizar</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- end highlights -->
 
                             <!-- contato -->
                             <li class="nav-item @yield('ul-contact')">

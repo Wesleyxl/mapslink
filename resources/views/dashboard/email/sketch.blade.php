@@ -32,7 +32,7 @@
     <div class="container" style="max-width: 1300px">
         <div class="row">
             <div class="col-md-3">
-                <a href="{{ route('dashboard-email-create') }}" class="btn btn-primary btn-block mb-3">Enviar</a>
+                {{-- <a href="{{ route('dashboard-email-create') }}" class="btn btn-primary btn-block mb-3">Enviar</a> --}}
 
                 <div class="card">
                     <div class="card-header">
@@ -52,11 +52,11 @@
                                     <span class="badge bg-primary float-right">{{ $unread }}</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('dashboard-email-send') }}" class="nav-link">
                                     <i class="far fa-envelope"></i> enviados
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a href="{{ route('dashboard-email-sketch') }}" class="nav-link" style="color: #007bff;">
                                     <i class="far fa-file-alt"></i> rascunhos

@@ -19,9 +19,11 @@ class WebsiteHomeController extends Controller
         $website['views'] += 1;
         $website->save();
 
+        $companies = Company::orderBy('name', 'asc')->get()->all();
 
         return view('pages.home.home', array(
             'website' => $website,
+            'companies' => $companies
         ));
     }
 }

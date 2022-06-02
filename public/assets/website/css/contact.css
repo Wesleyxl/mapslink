@@ -11,7 +11,7 @@
 }
 @media (max-width: 500px) {
     .contact {
-        padding: 45px 0px;
+        padding: 45px 0px !important;
     }
 }
 .contact h1 {

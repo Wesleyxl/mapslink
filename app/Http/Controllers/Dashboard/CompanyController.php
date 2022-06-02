@@ -75,16 +75,9 @@ class CompanyController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:256',
-            'email' => 'required|string|email',
-            'code' => 'string',
-            'description' => 'required|string|min:3',
-            'cep' => 'required|string',
-            'uf' => 'required|string',
-            'city' => 'required|string',
-            'neighborhood' => 'required|string',
-            'street' => 'required|string',
+            'description' => 'required|string',
+            'map' => 'required'
         ]);
-
 
         $request['url'] = static::cleanUrl($request['name']);
 
@@ -144,15 +137,8 @@ class CompanyController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:256',
-            'email' => 'required|string|email',
-            'code' => 'string',
-            'description' => 'required|string|min:3',
-            'cep' => 'required|string',
-            'uf' => 'required|string',
-            'city' => 'required|string',
-            'neighborhood' => 'required|string',
-            'street' => 'required|string',
-            'number' => 'required|numeric'
+            'description' => 'required|string',
+            'map' => 'required'
         ]);
 
         $request['url'] = static::cleanUrl($request['name']);

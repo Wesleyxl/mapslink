@@ -11,7 +11,7 @@
 <!-- intro -->
 <section id="intro" class="intro">
 <div class="center">
-    <h1>Permitir às pessoas e às empresas, em todo o mundo, a comunicação na palma da sua mão.</h1>
+    <h1>{{ $website['short_about'] }}</h1>
 </div>
 </section>
 <!-- end intro -->
@@ -31,49 +31,32 @@
 <!-- Content -->
 <section id="content" class="company">
     <div class="container">
+        @if(count($companies) >= 1)
+            @foreach ($companies as $company)
+            <div class="row">
+                <div class="company-card">
+                    <div class="title">
+                        <div class="img">
+                            <img src="{{ URL::to($company['img']) }}" alt="">
+                        </div>
+                        <div class="name">
+                            <h3>{{ $company['name'] }}</h3>
+                            <p><strong>Descrição: </strong> {{ $company['description'] }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="btn-area">
+                        <a target="_blank" href="{{ $company['map'] }}" class="btn btn-primary">Visualizar no mapa</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        @else
         <div class="row">
             <div class="company-card">
-                <div class="title">
-                    <div class="img">
-                        <img src="{{ URL::to('public/assets/website/img/buger.png') }}" alt="">
-                    </div>
-                    <div class="name">
-                        <h3 ></h3>
-                        <p><strong>Descrição</strong>: Burger King, muitas vezes abreviado como BK, é uma rede de restaurantes especializada em fast-food, fundada nos Estados Unidos por James McLamore e David Edgerton, que abriram a primeira unidade em Miami, Flórida. </p>
-                    </div>
-                </div>
-                <hr>
-                {{-- <div class="street">
-                    <ul>
-                        <li>
-                            <p><img src="assets/icon-map.svg" alt="">Av. Benjamin Harris Hunicutt, S/N - Vila Rio de Janeiro, Guarulhos - SP, 07111-070</p>
-                        </li>
-                    </ul>
-                    <ul>
-                        <p><strong>Telefones</strong></p>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            +55 11 1234-5678
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            +55 11 1234-5678
-                        </li>
-                    </ul>
-                    <ul>
-                        <p><strong>Email</strong></p>
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-                            contato@mapslink.com
-                        </li>
-                    </ul>
-                </div> --}}
-                <div class="btn-area">
-                    <a target="_blank" href="https://www.google.com/maps/place/Burger+King/@-23.4038966,-46.5879735,12z/data=!4m9!1m2!2m1!1sBurger+King!3m5!1s0x94cef51ee38d780b:0xc06bfcafcc54533b!8m2!3d-23.44062!4d-46.54192!15sCgtCdXJnZXIgS2luZyIDiAEBWg0iC2J1cmdlciBraW5nkgEUZmFzdF9mb29kX3Jlc3RhdXJhbnQ?hl=pt-BR" class="btn btn-primary">Visualizar no mapa</a>
-                </div>
-
+                <P>Não há empresas cadastradas</P>
             </div>
-        </div>
+        @endif
     </div>
 </section>
 <!-- end content -->
@@ -88,7 +71,7 @@
             $('#'+id).addClass('map');
         }
     }
-    $('#companyForm').on('keypress',() => {
+    $('#companyForm').on('keyup',() => {
         var value = $('#companyForm').val();
         $("#link-send").attr("href", "https://www.google.com/maps/search/"+value);
 

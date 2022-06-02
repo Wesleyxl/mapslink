@@ -41,6 +41,7 @@ class WebsiteController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         if (WebsiteSettings::edit($request->all(), $id)) {
             return redirect()->back()->with('success', 'Seus dados foram atualizados com sucesso!');
         } else {

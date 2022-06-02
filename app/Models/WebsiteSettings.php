@@ -23,7 +23,6 @@ class WebsiteSettings extends Model
         $website['facebook'] = $request['facebook'];
         $website['instagram'] = $request['instagram'];
         $website['linkedin'] = $request['linkedin'];
-        $website['about'] = $request['about'];
         $website['short_about'] = $request['short_about'];
 
         if ($website->save()) {

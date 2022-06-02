@@ -9,7 +9,7 @@
 <!-- intro -->
 <section id="intro" class="intro">
     <div class="center">
-        <h1>Permitir às pessoas e às empresas, em todo o mundo, a comunicação na palma da sua mão.</h1>
+        <h1>{{ $website['short_about'] }}</h1>
     </div>
     </section>
 

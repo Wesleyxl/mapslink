@@ -111,7 +111,7 @@
                             <div class="form-group">
                                 <label for="compose-textarea">Banner texto</label>
                                 <div class="form-group">
-                                    <textarea name="short_about" id="compose-textarea2" class="form-control">{{ $website['short_about'] }}</textarea>
+                                    <textarea name="short_about" class="form-control">{{ $website['short_about'] }}</textarea>
                                 </div>
                                 @error('short_about')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -119,20 +119,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="compose-textarea">Sobre a empresa</label>
-                                <div class="form-group">
-                                    <textarea name="about" id="compose-textarea" class="form-control" style="height: 300px">{{ $website['about'] }}</textarea>
-                                </div>
-                                @error('about')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="btn-area d-flex justify-content-between">
                         <a href="{{ route('dashboard') }}" class="btn btn-primary">Voltar</a>
                         <button type="submit" class="btn btn-success">editar</button>
