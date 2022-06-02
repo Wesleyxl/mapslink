@@ -1,29 +1,32 @@
 /* GERAL */
-:root {
-    --primary-color: #1A3586;
-    --secondary-color: #4A73DC;
-}
-body {
-    background-color: #ffffff;
-    color: #000000;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-}
 * {
+    margin: 0;
+    padding: 0;
     outline: 0;
     box-sizing: border-box;
 }
-a:hover {
-    text-decoration: none;
+:root {
+    --blue: #4285F4;
+    --yellow: #FBBC07;
+    --green: #34A852;
+    --red: #EA4335;
+}
+body {
+    color: #000;
+    background-color: #efefef;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
 }
 li {
     list-style: none;
 }
-.highlights {
-    overflow-x: hidden !important;
+a:hover {
+    text-decoration: none;
 }
-/* END GERAL */
+.container {
+    max-width: 1600px;
+}
+
 /* HEADER */
 header {
     width: 100%;
@@ -37,8 +40,8 @@ header {
     filter: none;
 }
 header.header-appear {
-    background: linear-gradient(90deg, #1A3586 28.16%, #1A3586 40%, #4166D5 82.63%, #4A73DC 89.09%);
-    filter: drop-shadow(0px 6px 8px rgba(26, 53, 134, 0.95));
+    background: #fff;
+    border-bottom: 3px solid var(--blue);
 }
 header .mobile-menu {
     display: none;
@@ -49,7 +52,7 @@ header .mobile-menu .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, #1A3586 28.16%, #1A3586 40%, #4166D5 82.63%, #4A73DC 89.09%);
+    background: var(--blue);
     padding: 0 30px;
 }
 header .mobile-menu .navigation .logo {
@@ -78,7 +81,7 @@ header .mobile-menu nav {
     left: -80%;
     width: 80%;
     height: 100vh;
-    background: linear-gradient(90deg, #1A3586 28.16%, #1A3586 40%, #4166D5 82.63%, #4A73DC 89.09%);
+    background: var(--blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +95,7 @@ header .mobile-menu nav ul li {
 }
 header .mobile-menu nav ul li a {
     font-size: 30px;
-    color: #ffffff;
+    color: #000;
     position: relative;
 }
 header .mobile-menu nav ul li .active {
@@ -106,7 +109,7 @@ header .mobile-menu nav ul li .active::before {
     left: 0;
     bottom: -3px;
     border-radius: 2px;
-    background: #ffffff;
+    background: var(--blue);
     transform: scale3d(1,1,1);
 }
 header .mobile-menu nav ul li .active::after {
@@ -117,7 +120,7 @@ header .mobile-menu nav ul li .active::after {
     left: 25%;
     bottom: -8px;
     border-radius: 2px;
-    background: #ffffff;
+    background: var(--blue);
     transform: scale3d(1,1,1);
 }
 header .desktop-menu {
@@ -148,10 +151,11 @@ header .desktop-menu nav ul li {
 header .desktop-menu nav ul li a {
     font-size: 20px;
     position: relative;
-    color: #FFFFFF;
+    color: #000;
 }
 header .desktop-menu nav ul li a:hover {
     font-weight: bold;
+    color: var(--blue);
 }
 header .desktop-menu nav ul li a::before {
     content: "";
@@ -161,7 +165,7 @@ header .desktop-menu nav ul li a::before {
     left: 0;
     bottom: -3px;
     border-radius: 2px;
-    background: #ffffff;
+    background: var(--blue);
     transform: scale3d(0,1,1);
     transform-origin: center;
     transition: all ease .5s;
@@ -174,7 +178,7 @@ header .desktop-menu nav ul li a::after {
     left: 25%;
     bottom: -8px;
     border-radius: 2px;
-    background: #ffffff;
+    background: var(--blue);
     transform: scale3d(0,1,1);
     transform-origin: center;
     transition: all ease .5s;
@@ -196,7 +200,7 @@ header .desktop-menu nav ul li .active::before {
     left: 0;
     bottom: -3px;
     border-radius: 2px;
-    background: #ffffff;
+    background: var(--blue);
     transform: scale3d(1,1,1);
 }
 header .desktop-menu nav ul li .active::after {
@@ -207,7 +211,7 @@ header .desktop-menu nav ul li .active::after {
     left: 25%;
     bottom: -8px;
     border-radius: 2px;
-    background: #ffffff;
+    background: var(--blue);
     transform: scale3d(1,1,1);
 }
 @media (max-width: 760px) {
@@ -220,11 +224,19 @@ header .desktop-menu nav ul li .active::after {
 }
 /* END HEADER */
 
+
+/* INTRO */
+.intro {
+    width: 100%;
+    height: 80vh;
+}
+
+
 /* FOOTER */
 footer {
     width: 100%;
     min-height: 215px;
-    background: linear-gradient(270deg, #211A86 46.88%, #4A73DC 75%);
+    background: var(--blue);
 }
 footer .title {
     text-align: center;
@@ -297,7 +309,7 @@ footer .copy-area span {
     }
 }
 footer .copy-area span a {
-    color: var(--primary-color);
+    color: var(--blue);
     font-weight: bold;
 }
 /* FOOTER */

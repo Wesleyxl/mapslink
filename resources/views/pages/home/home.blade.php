@@ -3,213 +3,93 @@
 @section('a-home', 'active')
 @section('content')
 
-    <!-- links -->
-    <link rel="stylesheet" href="{{ URL::to('/public/assets/website/css/home.css') }}">
-    <!-- end links -->
+<!-- links -->
+<link rel="stylesheet" href="{{ URL::to('/public/assets/website/css/home.css') }}">
+<!-- end links -->
 
-    <!-- Intro -->
-    <section class="intro" id="intro">
-        <div class="welcome-title">
-            <h1>Darus Tecnologia</h1>
-            <h2>Plataforma Digital Empresarial</h2>
-        </div>
-        <div class="welcome-text">
-            <p>{!! $website['short_about'] !!}</p>
-        </div>
-        <div class="search-area">
-            <form action="{{ route('website-home-search') }}" method="POST">
-                @csrf
-                <input class="form-control" type="text" name="search" id="word" placeholder="Busque por qualquer palavra">
-                <select name="uf" id="uf" class="form-control @error('uf') is-invalid @enderror">
-                    <option value="">Selecione um Local</option>
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP" id="none">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                </select>
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+<!-- intro -->
+<section id="intro" class="intro" style="background: url({{ URL::to('public/assets/website/img/banner.webp') }});background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;"></section>
+<!-- end intro -->
+<section class="search">
+    <div class="container">
+        <div class="form">
+            <form action="">
+                <div class="form-group">
+                    <label for="company">Localize uma empresa aqui</label>
+                    <input type="text" id="company" name="company" class="form-control" placeholder="Encontre uma empresa">
+                </div>
+                <button type="submit" class="btn btn-secondary">Buscar Empresa <img src="assets/icon-map.svg" alt=""></button>
             </form>
         </div>
-    </section>
-    <!-- End Intro -->
-
-    <!-- Category -->
-    <section class="category" id="category">
-        <div class="container">
-            <div class="title-area">
-                <h3>Categoria</h3>
-            </div>
-            <div class="content">
-                <div class="row">
-                    @if(count($categories) >= 1)
-                        @foreach ( $categories as $category)
-
-                            <div class="col-md-3">
-                                <div class="card-area">
-                                    <div class="card-area-header">
-                                        <p>{{ $category['name'] }}</p>
-                                    </div>
-                                    <div class="card-area-body">
-                                        <ul>
-                                            @foreach ($subcategories as $subcategory)
-                                                @if($subcategory['category_id'] === $category['id'])
-                                                    <li><a href="{{ url('/categoria/'.$category['url'].'/'.$subcategory['url']) }}" alt="{{ $subcategory['name'] }}" title="{{ $subcategory['name'] }}">{{ $subcategory['name'] }}</a></li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @else
-                        <h4>Nada para mostrar</h4>
-                    @endif
-                </div>
-                <div class="btn-area">
-                    <a href="{{ route('website-category') }}" alt="Categorias" title="Categorias">Ver Mais</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Category -->
-
-    <!-- Highlights -->
-    <section class="highlights" id="highlights">
-        <div class="container" style="position: relative;">
-            <div class="title-area">
-                <h4>Empresas em Destaque</h4>
-            </div>
-            <div class="content">
-                <div style="top: 50%; left: -35px;" class="swiper-button-prev2" tabindex="0" role="button" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></div>
-                <div class="swiper-containers">
-                    <div class="swiper-wrapper">
-                        @foreach ($highlights as $company)
-                            <div class="swiper-slide">
-                                <div class="card-highlights">
-                                    <div class="card-highlights-header">
-                                        <div class="top">
-                                            <div class="star">
-                                                @if($company['stars'] <= 10)
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                @elseif($company['stars'] > 10 && $company['stars'] <= 20)
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                @elseif($company['stars'] > 20 && $company['stars'] <= 30)
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                @elseif($company['stars'] > 30 && $company['stars'] <= 40)
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-regular fa-star"></i>
-                                                @else
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                @endif
-                                            </div>
-                                            <div class="button">
-                                                <p>Destaque</p>
-                                            </div>
-                                        </div>
-                                            <div class="link">
-                                                <a href="{{ url('/categoria/'.$company['category'].'/'.$company['subcategory'].'/empresa/'.$company['url']) }}">Saiba +</a>
-                                            </div>
-                                            @if($company['img'] != null)
-                                                <img src="{{ URL::to($company['img']) }}" alt="{{ $company['name'] }}" title="{{ $company['name'] }}">
-                                            @else
-                                                <img src="{{ URL::to('/public/assets/website/img/no-image.webp') }}" alt="{{ $company['name'] }}" title="{{ $company['name'] }}">
-                                            @endif
-                                    </div>
-                                    <div class="card-highlights-body">
-                                        <div class="title">
-                                            <p>{{ $company['name'] }}</p>
-                                        </div>
-                                        <div class="text">
-                                            <p>{{ $company['street'] }}, {{ $company['number'] }} - {{ $company['neighborhood'] }}, {{ $company['city'] }} - {{ $company['uf'] }}, {{ $company['cep'] }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+    </div>
+</section>
+<!-- Content -->
+<section id="content" class="company">
+    <div class="container">
+        <div class="row">
+            <div class="company-card">
+                <div class="title">
+                    <div class="img">
+                        <img src="{{ URL::to('public/assets/website/img/google-maps-smartphone.jpg') }}" alt="">
+                    </div>
+                    <div class="name">
+                        <h3 >Wa Desenvolvimentos</h3>
+                        <p><strong>Descrição</strong>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, similique nulla? Hic velit corrupti eveniet cum officiis pariatur in animi esse quae quasi sunt nihil, architecto tempora itaque, atque possimus.</p>
                     </div>
                 </div>
-                <div style="top: 50%; right: -35px;" class="swiper-button-next2" tabindex="0" role="button" aria-label="Next slide"><i class="fas fa-chevron-right"></i></div>
+                <hr>
+                <div class="street">
+                    <ul>
+                        <li>
+                            <p><img src="assets/icon-map.svg" alt=""> rua sebastião, 13 - Recreio S. Jorge, Guarulhos - São Paulo, 12344-567</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <p><strong>Telefones</strong></p>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            +55 11 1234-5678
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            +55 11 1234-5678
+                        </li>
+                    </ul>
+                    <ul>
+                        <p><strong>Email</strong></p>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            contato@mapslink.com
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-area">
+                    <button onclick="showMap('map-'+1)" type="button" class="btn btn-primary">Visualizar no mapa</button>
+                </div>
+                <div class="map-area">
+                    <div class="map-hide" id="map-1">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29280.45892453592!2d-46.515337500463865!3d-23.458395165135716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef55b5f1876d9%3A0xdeede4c5517cc50b!2sPra%C3%A7a%20Presidente%20Get%C3%BAlio%20Vargas!5e0!3m2!1spt-BR!2sbr!4v1654181154574!5m2!1spt-BR!2sbr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <!-- End Highlights -->
-    <link rel="stylesheet" href="{{ URL::to('/public/assets/website/css/swiper.css') }}">
-    <script src="{{ URL::to('/public/assets/website/js/swiper.js') }}"></script>
-    <script>
+    </div>
+</section>
+<!-- end content -->
 
-        var documentation = window.innerWidth;
-
-        if (documentation <= 700){
-            var swiper = new Swiper(".swiper-containers", {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                loop: true,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next2',
-                    prevEl: '.swiper-button-prev2',
-                },
-            });
+<script>
+    function showMap(id) {
+        if ($('#'+id).hasClass('map')) {
+            $('#'+id).removeClass('map');
+            $('#'+id).addClass('map-hide');
         } else {
-            var swiper = new Swiper(".swiper-containers", {
-                slidesPerView: 4,
-                spaceBetween: 30,
-                loop: true,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next2',
-                    prevEl: '.swiper-button-prev2',
-                },
-            });
+            $('#'+id).removeClass('map-hide');
+            $('#'+id).addClass('map');
         }
-    </script>
+    }
+</script>
 
 @endsection

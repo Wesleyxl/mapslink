@@ -39,15 +39,6 @@ class CompanyController extends Controller
         $companies = Company::orderBy('name', 'asc')
             ->paginate(10);
 
-        foreach ($companies as $company) {
-            $category_name = Category::select('name')
-                ->where('id', $company['category_id'])->first();
-            $subcategory_name = Subcategory::select('name')
-                ->where('id', $company['subcategory_id'])->first();
-
-            $company['category_name'] = $category_name['name'];
-            $company['subcategory_name'] =  $subcategory_name['name'];
-        }
 
         return view('dashboard.company.home', array(
             'companies' => $companies,
@@ -68,12 +59,8 @@ class CompanyController extends Controller
             $notification['time'] = static::runningTime($notification['created_at']);
         }
 
-        $categories = Category::orderBy('name', 'asc')->get()->all();
-        $subcategories = Subcategory::orderBy('name', 'asc')->get()->all();
 
         return view('dashboard.company.create', array(
-            'categories' => $categories,
-            'subcategories' => $subcategories,
             'notifications' => $notifications
         ));
     }
@@ -90,7 +77,6 @@ class CompanyController extends Controller
             'name' => 'required|string|max:256',
             'email' => 'required|string|email',
             'code' => 'string',
-            'category' => 'required|string',
             'description' => 'required|string|min:3',
             'cep' => 'required|string',
             'uf' => 'required|string',
@@ -99,9 +85,6 @@ class CompanyController extends Controller
             'street' => 'required|string',
         ]);
 
-        $values = explode("-", $request['category']);
-        $request['subcategory'] = $values[0];
-        $request['category'] = $values[1];
 
         $request['url'] = static::cleanUrl($request['name']);
 
@@ -141,29 +124,11 @@ class CompanyController extends Controller
         }
 
         $company = Company::find($id);
-        $categories = Category::orderBy('name', 'asc')->get()->all();
-        $subcategories = Subcategory::orderBy('name', 'asc')->get()->all();
 
-        $highlight = HighLight::where('company_id', $company['id'])->get()->first();
 
-        if ($highlight) {
-            $company['highlight'] = true;
-        } else {
-            $company['highlight'] = false;
-        }
-
-        $category_name = Category::select('name')
-            ->where('id', $company['category_id'])->first();
-        $subcategory_name = Subcategory::select('name')
-            ->where('id', $company['subcategory_id'])->first();
-
-        $company['category_name'] = $category_name['name'];
-        $company['category_name'] = $subcategory_name['name'];
 
         return view('dashboard.company.edit', array(
             'company' => $company,
-            'categories' => $categories,
-            'subcategories' => $subcategories,
             'notifications' => $notifications
         ));
     }
@@ -181,7 +146,6 @@ class CompanyController extends Controller
             'name' => 'required|string|max:256',
             'email' => 'required|string|email',
             'code' => 'string',
-            'category' => 'required|string',
             'description' => 'required|string|min:3',
             'cep' => 'required|string',
             'uf' => 'required|string',
@@ -191,9 +155,6 @@ class CompanyController extends Controller
             'number' => 'required|numeric'
         ]);
 
-        $values = explode("-", $request['category']);
-        $request['subcategory'] = $values[0];
-        $request['category'] = $values[1];
         $request['url'] = static::cleanUrl($request['name']);
 
         if ($validator->fails()) {
@@ -241,15 +202,6 @@ class CompanyController extends Controller
             ->orderBy('name', 'asc')
             ->paginate(10);
 
-        foreach ($companies as $company) {
-            $category_name = Category::select('name')
-                ->where('id', $company['category_id'])->first();
-            $subcategory_name = Subcategory::select('name')
-                ->where('id', $company['subcategory_id'])->first();
-
-            $company['category_name'] = $category_name['name'];
-            $company['subcategory_name'] = $subcategory_name['name'];
-        }
 
         return view('dashboard.company.search', array(
             'companies' => $companies,
