@@ -18,12 +18,12 @@
 <section class="search">
     <div class="container">
         <div class="form">
-            <form action="">
+            <form id="form">
                 <div class="form-group">
                     <label for="company">Localize uma empresa aqui</label>
-                    <input type="text" id="company" name="company" class="form-control" placeholder="Encontre uma empresa">
+                    <input type="text" id="companyForm" name="company" class="form-control" placeholder="Encontre uma empresa">
                 </div>
-                <button type="submit" class="btn btn-secondary">Buscar Empresa <img src="assets/icon-map.svg" alt=""></button>
+                <a target="_blank" id="link-send" href="" class="btn btn-secondary">Buscar Empresa <img src="assets/icon-map.svg" alt=""></a>
             </form>
         </div>
     </div>
@@ -35,18 +35,18 @@
             <div class="company-card">
                 <div class="title">
                     <div class="img">
-                        <img src="{{ URL::to('public/assets/website/img/google-maps-smartphone.jpg') }}" alt="">
+                        <img src="{{ URL::to('public/assets/website/img/buger.png') }}" alt="">
                     </div>
                     <div class="name">
-                        <h3 >Wa Desenvolvimentos</h3>
-                        <p><strong>Descrição</strong>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, similique nulla? Hic velit corrupti eveniet cum officiis pariatur in animi esse quae quasi sunt nihil, architecto tempora itaque, atque possimus.</p>
+                        <h3 ></h3>
+                        <p><strong>Descrição</strong>: Burger King, muitas vezes abreviado como BK, é uma rede de restaurantes especializada em fast-food, fundada nos Estados Unidos por James McLamore e David Edgerton, que abriram a primeira unidade em Miami, Flórida. </p>
                     </div>
                 </div>
                 <hr>
-                <div class="street">
+                {{-- <div class="street">
                     <ul>
                         <li>
-                            <p><img src="assets/icon-map.svg" alt=""> rua sebastião, 13 - Recreio S. Jorge, Guarulhos - São Paulo, 12344-567</p>
+                            <p><img src="assets/icon-map.svg" alt="">Av. Benjamin Harris Hunicutt, S/N - Vila Rio de Janeiro, Guarulhos - SP, 07111-070</p>
                         </li>
                     </ul>
                     <ul>
@@ -67,62 +67,11 @@
                             contato@mapslink.com
                         </li>
                     </ul>
-                </div>
+                </div> --}}
                 <div class="btn-area">
-                    <button onclick="showMap('map-'+1)" type="button" class="btn btn-primary">Visualizar no mapa</button>
+                    <a target="_blank" href="https://www.google.com/maps/place/Burger+King/@-23.4038966,-46.5879735,12z/data=!4m9!1m2!2m1!1sBurger+King!3m5!1s0x94cef51ee38d780b:0xc06bfcafcc54533b!8m2!3d-23.44062!4d-46.54192!15sCgtCdXJnZXIgS2luZyIDiAEBWg0iC2J1cmdlciBraW5nkgEUZmFzdF9mb29kX3Jlc3RhdXJhbnQ?hl=pt-BR" class="btn btn-primary">Visualizar no mapa</a>
                 </div>
-                <div class="map-area">
-                    <div class="map-hide" id="map-1">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29280.45892453592!2d-46.515337500463865!3d-23.458395165135716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef55b5f1876d9%3A0xdeede4c5517cc50b!2sPra%C3%A7a%20Presidente%20Get%C3%BAlio%20Vargas!5e0!3m2!1spt-BR!2sbr!4v1654181154574!5m2!1spt-BR!2sbr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="company-card">
-                <div class="title">
-                    <div class="img">
-                        <img src="https://guiacompany.com.br/public/upload/empresa/agropecuaria-grigio.png" alt="">
-                    </div>
-                    <div class="name">
-                        <h3 >Agropecuaria Grigio</h3>
-                        <p><strong>Descrição</strong>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, similique nulla? Hic velit corrupti eveniet cum officiis pariatur in animi esse quae quasi sunt nihil, architecto tempora itaque, atque possimus.</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="street">
-                    <ul>
-                        <li>
-                            <p><img src="assets/icon-map.svg" alt=""> rua sebastião, 13 - Recreio S. Jorge, Guarulhos - São Paulo, 12344-567</p>
-                        </li>
-                    </ul>
-                    <ul>
-                        <p><strong>Telefones</strong></p>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            +55 11 1234-5678
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            +55 11 1234-5678
-                        </li>
-                    </ul>
-                    <ul>
-                        <p><strong>Email</strong></p>
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-                            contato@mapslink.com
-                        </li>
-                    </ul>
-                </div>
-                <div class="btn-area">
-                    <button onclick="showMap('map-'+2)" type="button" class="btn btn-primary">Visualizar no mapa</button>
-                </div>
-                <div class="map-area">
-                    <div class="map-hide" id="map-2">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29273.641525058116!2d-46.553966698269036!3d-23.48911765217621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5f8bdf46d149%3A0x452d63ebf2b5513f!2sAgroart%20pet%20e%20agropecu%C3%A1ria.!5e0!3m2!1spt-BR!2sbr!4v1654188180925!5m2!1spt-BR!2sbr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -139,6 +88,11 @@
             $('#'+id).addClass('map');
         }
     }
+    $('#companyForm').on('keypress',() => {
+        var value = $('#companyForm').val();
+        $("#link-send").attr("href", "https://www.google.com/maps/search/"+value);
+
+    });
 </script>
 
 @endsection
