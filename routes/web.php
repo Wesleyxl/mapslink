@@ -98,14 +98,3 @@ Route::prefix('/')->group(function () {
 
 // developer only
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/password/{pass}', function ($pass) {
-
-    $password = Hash::make($pass);
-
-    return response($password);
-});
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});

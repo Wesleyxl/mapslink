@@ -109,29 +109,33 @@
         </div>
         <div class="links">
             <ul>
+                @if($website['phone'])
                 <li><a href="">
                     <i class="fa-solid fa-phone"></i>
-                    (11) 1234-5678
+                    {{ $website['phone'] }}
                 </a></li>
+                @endif
+                @if($website['cellphone'])
                 <li><a href="">
                     <i class="fa-brands fa-whatsapp"></i>
-                    (11) 91234-5678
+                    {{ $website['cellphone'] }}
                 </a></li>
+                @endif
             </ul>
             <ul>
                 <li><a href="">
                     <i class="fa-regular fa-envelope"></i>
-                    conato@darustecnologia.com.br
+                    {{ $website['email'] }}
                 </a></li>
                 <li><a href="">
                     <i class="fa-regular fa-clock"></i>
-                    seg à sexta, 9hrs - 18hrs
+                    {{ $website['office_hour'] }}
                 </a></li>
             </ul>
         </div>
     </div>
     <div class="copy-area">
-        <p><i class="fa-regular fa-copyright"></i> copyright 2022 - Mapslink <span>Desenvolvido por <a href="https://www.wesley-alves.com">Wesley Alves</a></span></p>
+        <p><i class="fa-regular fa-copyright"></i> copyright {{ $website['copyright_year'] }} - GMapslink <span>Desenvolvido por <a href="https://www.wesley-alves.com">Wesley Alves</a></span></p>
     </div>
 </footer>
 <!-- end footer -->

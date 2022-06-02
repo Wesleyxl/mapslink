@@ -27,7 +27,7 @@ class WebsiteContactController extends Controller
             'email' => 'required|email',
             'label' => 'required',
             'subject' => 'required',
-            'message' => 'required|string|min:10'
+            'message' => 'required|string|min:5'
         ]);
 
         if ($validation->fails()) {
