@@ -24,7 +24,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"></script>
 
-    <link rel="shortcut icon" href="assets/fav-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ URL::to('public/assets/website/img/fav-icon.png') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
