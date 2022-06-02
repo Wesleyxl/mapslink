@@ -233,7 +233,7 @@ header .desktop-menu nav ul li .active::after {
 .intro {
     width: 100%;
     height: 70vh;
-    background: url("../img/banner-home.jpg");
+    background: url("../img/home-banner-2.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center bottom;
