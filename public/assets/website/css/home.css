@@ -68,6 +68,7 @@
 @media (max-width: 760px) {
     .company .company-card .title {
         flex-wrap: wrap;
+        justify-content: center;
     }
 }
 .company .company-card .title .img {
@@ -110,6 +111,11 @@
 .company .company-card .btn-area {
     text-align: center;
     margin: 40px 0 30px;
+}
+@media(max-width: 500px) {
+    .company .company-card .street {
+        text-align: center;
+    }
 }
 .company .company-card .btn-area a {
     background: var(--blue);
