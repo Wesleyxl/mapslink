@@ -93,6 +93,11 @@
     text-align: justify;
     margin: 20px 0 10px 20px;
 }
+@media(max-width: 500px) {
+    .company .company-card .title .name {
+        width: 100%;
+    }
+}
 .company .company-card .text-area p {
     text-align: left;
     margin: 15px 15px 15px 30px;
