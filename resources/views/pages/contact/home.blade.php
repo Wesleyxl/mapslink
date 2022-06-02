@@ -6,12 +6,12 @@
 <!-- links -->
 <link rel="stylesheet" href="{{ URL::to('/public/assets/website/css/contact.css') }}">
 <!-- end links -->
-<section class="banner" style="background: url({{ URL::to('public/assets/website/img/banner.webp') }}); margin-top: 100px;
-width: 100%;
-height: 500px;
-background-repeat: no-repeat;
-background-size: contain;
-background-position: center center;"></section>
+<!-- intro -->
+<section id="intro" class="intro">
+    <div class="center">
+        <h1>Permitir às pessoas e às empresas, em todo o mundo, a comunicação na palma da sua mão.</h1>
+    </div>
+    </section>
 
 <!-- contact -->
 <section id="contact" class="contact">
