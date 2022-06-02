@@ -9,9 +9,11 @@
 
 
 <!-- intro -->
-<section id="intro" class="intro" style="background: url({{ URL::to('public/assets/website/img/banner.webp') }});background-repeat: no-repeat;
-background-size: cover;
-background-position: center center;"></section>
+<section id="intro" class="intro">
+<div class="center">
+    <h1>Permitir às pessoas e às empresas, em todo o mundo, a comunicação na palma da sua mão.</h1>
+</div>
+</section>
 <!-- end intro -->
 <section class="search">
     <div class="container">
