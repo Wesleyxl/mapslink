@@ -39,6 +39,7 @@ class WebsiteContactController extends Controller
         $contact = new Email();
         $contact['from'] = $request['name'];
         $contact['to'] = $user['name'];
+        $contact['email'] = $request['email'];
         $contact['label'] = $request['label'];
         $contact['subject'] = $request['subject'];
         $contact['message'] = $request['message'];

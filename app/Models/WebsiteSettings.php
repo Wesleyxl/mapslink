@@ -20,6 +20,7 @@ class WebsiteSettings extends Model
         $website['phone'] = $request['phone'];
         $website['cellphone'] = $request['cellphone'];
         $website['email'] = $request['email'];
+        $website['address'] = $request['address'];
         $website['facebook'] = $request['facebook'];
         $website['instagram'] = $request['instagram'];
         $website['linkedin'] = $request['linkedin'];

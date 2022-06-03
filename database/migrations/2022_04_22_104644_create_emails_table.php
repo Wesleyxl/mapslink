@@ -20,6 +20,7 @@ class CreateEmailsTable extends Migration
             $table->enum('label', ['service', 'compliment', 'complaint', 'other'])->default('other');
             $table->string('label_name')->nullable();
             $table->text('subject');
+            $table->string('email')->nullable();
             $table->longText('message');
             $table->boolean('read')->default(0);
             $table->enum('status', ['inbox', 'send', 'sketch', 'trash'])->default('inbox');

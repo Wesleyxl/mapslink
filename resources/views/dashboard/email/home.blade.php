@@ -73,11 +73,11 @@
                                     <i class="far fa-file-alt"></i> rascunhos
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('dashboard-email-trash') }}" class="nav-link">
                                     <i class="far fa-trash-alt"></i> lixeira
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <!-- /.card-body -->
@@ -145,102 +145,68 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">
-                        <div class="mailbox-controls">
-                            @if(count($unreads) > 0 || count($emails) > 0)
-                            <!-- Check all button -->
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
-                            </button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <i class="far fa-trash-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <i class="fas fa-reply"></i>
-                                </button>
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <i class="fas fa-share"></i>
-                                </button>
-                            </div>
-                            <!-- /.btn-group -->
-                            <button type="button" class="btn btn-default btn-sm">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                            <div class="float-right">
-                                1-50/200
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                <!-- /.btn-group -->
-                            </div>
-                            <!-- /.float-right -->
-                            @endif
-                        </div>
+
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
                                 <tbody>
-                                @if(count($unreads) > 0)
-                                        @foreach ($unreads as $unread)
-                                            <tr>
-                                                <td>
-                                                    <div class="icheck-primary">
-                                                        <input type="checkbox" value="" id="check{{ $unread['id'] }}">
-                                                        <label for="check{{ $unread['id'] }}"></label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    @if($unread['label'] == 'service')
-                                                    <i class="fa-solid fa-circle text-success"></i>
-                                                    @elseif ($unread['label'] == 'compliment')
-                                                    <i class="fa-solid fa-circle text-primary"></i>
-                                                    @elseif ($unread['label'] == 'complaint')
-                                                    <i class="fa-solid fa-circle text-danger"></i>
-                                                    @else
-                                                    <i class="fa-solid fa-circle text-secondary"></i>
-                                                    @endif
-                                                    <i class="fas fa-star text-warning" style="margin-left: 5px"></i>
-                                                </td>
-                                                <td class="mailbox-name"><a href="{{ route('dashboard-email-show', ['id' => $unread['id']]) }}">{{ $unread['from'] }}</a></td>
-                                                <td class="mailbox-subject"><b>Assunto</b> - {{ $unread['subject'] }}...
-                                                </td>
-                                                <td class="mailbox-attachment"></td>
-                                                <td class="mailbox-date">5 mins ago</td>
-                                            </tr>
-                                        @endforeach
+                                    @if(count($unreads) > 0)
+                                    @foreach ($unreads as $unread)
+                                    <tr>
+                                        <td>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" value="" id="check{{ $unread['id'] }}">
+                                                <label for="check{{ $unread['id'] }}"></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @if($unread['label'] == 'service')
+                                            <i class="fa-solid fa-circle text-success"></i>
+                                            @elseif ($unread['label'] == 'compliment')
+                                            <i class="fa-solid fa-circle text-primary"></i>
+                                            @elseif ($unread['label'] == 'complaint')
+                                            <i class="fa-solid fa-circle text-danger"></i>
+                                            @else
+                                            <i class="fa-solid fa-circle text-secondary"></i>
+                                            @endif
+                                            <i class="fas fa-star text-warning" style="margin-left: 5px"></i>
+                                        </td>
+                                        <td class="mailbox-name"><a href="{{ route('dashboard-email-show', ['id' => $unread['id']]) }}">{{ $unread['from'] }}</a></td>
+                                        <td class="mailbox-subject"><b>Assunto</b> - {{ $unread['subject'] }}...
+                                        </td>
+                                        <td class="mailbox-attachment"></td>
+                                        <td class="mailbox-date">5 mins ago</td>
+                                    </tr>
+                                    @endforeach
                                     @endif
                                     @if (count($emails) > 0)
-                                        @foreach ($emails as $email)
-                                            <tr>
-                                                <td>
-                                                    <div class="icheck-primary">
-                                                        <input type="checkbox" value="" id="check{{ $email['id'] }}">
-                                                        <label for="check{{ $email['id'] }}"></label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    @if($email['label'] == 'service')
-                                                        <i class="fa-solid fa-circle text-success"></i>
-                                                    @elseif ($email['label'] == 'compliment')
-                                                        <i class="fa-solid fa-circle text-primary"></i>
-                                                    @elseif ($email['label'] == 'complaint')
-                                                        <i class="fa-solid fa-circle text-danger"></i>
-                                                    @else
-                                                        <i class="fa-solid fa-circle text-secondary"></i>
-                                                    @endif
-                                                </td>
-                                                <td class="mailbox-name"><a href="{{ route('dashboard-email-show', ['id' => $email['id']]) }}">{{ $email['from'] }}</a></td>
-                                                <td class="mailbox-subject"><b>Assunto</b> - {{ $email['subject'] }}...
-                                                </td>
-                                                <td class="mailbox-attachment"></td>
-                                                <td class="mailbox-date">5 mins ago</td>
-                                            </tr>
-                                        @endforeach
+                                    @foreach ($emails as $email)
+                                    <tr>
+                                        <td>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" value="" id="check{{ $email['id'] }}">
+                                                <label for="check{{ $email['id'] }}"></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @if($email['label'] == 'service')
+                                            <i class="fa-solid fa-circle text-success"></i>
+                                            @elseif ($email['label'] == 'compliment')
+                                            <i class="fa-solid fa-circle text-primary"></i>
+                                            @elseif ($email['label'] == 'complaint')
+                                            <i class="fa-solid fa-circle text-danger"></i>
+                                            @else
+                                            <i class="fa-solid fa-circle text-secondary"></i>
+                                            @endif
+                                        </td>
+                                        <td class="mailbox-name"><a href="{{ route('dashboard-email-show', ['id' => $email['id']]) }}">{{ $email['from'] }}</a></td>
+                                        <td class="mailbox-subject"><b>Assunto</b> - {{ $email['subject'] }}...
+                                        </td>
+                                        <td class="mailbox-attachment"></td>
+                                        <td class="mailbox-date">5 mins ago</td>
+                                    </tr>
+                                    @endforeach
                                     @else
-                                        <th>Nenhum email foi encontrado</th>
+                                    {{-- <th>Nenhum email foi encontrado</th> --}}
                                     @endif
                                 </tbody>
                             </table>
@@ -249,38 +215,7 @@
                         <!-- /.mail-box-messages -->
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer p-0">
-                        <div class="mailbox-controls">
-                            @if(count($unreads) > 0 || count($emails) > 0)
-                            <!-- Check all button -->
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle">
-                                <i class="far fa-square"></i>
-                            </button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <i class="far fa-trash-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <i class="fas fa-reply"></i>
-                                </button>
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <i class="fas fa-share"></i>
-                                </button>
-                            </div>
-                            <!-- /.btn-group -->
-                            <button type="button" class="btn btn-default btn-sm">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                            <div class="float-right">
-                                {{-- 1-50/200 --}}
-                                <div class="btn-group">
-                                    {{ $emails->links('pagination::bootstrap-4') }}
-                                </div>
-                                <!-- /.btn-group -->
-                            </div>
-                            <!-- /.float-right -->
-                            @endif
-                        </div>
+
                     </div>
                 </div>
                 <!-- /.card -->

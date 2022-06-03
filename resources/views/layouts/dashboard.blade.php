@@ -183,12 +183,12 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                         <a href="{{ route('dashboard-email-create') }}" class="nav-link @yield('a-contact-create')">
                                             <i class="fas fa-plus nav-icon"></i>
                                             <p>Enviar</p>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                         <a href="{{ route('dashboard-email') }}" class="nav-link @yield('a-contact')">
                                             <i class="fa-solid fa-eye"></i>

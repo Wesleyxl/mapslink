@@ -25,6 +25,7 @@ class WebsiteSeed extends Seeder
             'instagram' => '',
             'linkedin' => '',
             'copyright_year' => '',
+            'address' => '',
             'short_about' => 'Permitir às pessoas e às empresas, em todo o mundo, a comunicação na palma da sua mão.',
             'created_at' => '2022/05/20 00:00:00',
             'updated_at' => '2022/05/20 00:00:00'

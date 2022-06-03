@@ -23,7 +23,7 @@
                     <label for="company">Localize uma empresa aqui</label>
                     <input type="text" id="companyForm" name="company" class="form-control" placeholder="Encontre uma empresa">
                 </div>
-                <a target="_blank" id="link-send" href="" class="btn btn-secondary">Buscar Empresa <img src="assets/icon-map.svg" alt=""></a>
+                <a target="_blank" id="link-send" href="#" class="btn btn-secondary">Buscar Empresa <img src="assets/icon-map.svg" alt=""></a>
             </form>
         </div>
     </div>
@@ -62,20 +62,17 @@
 <!-- end content -->
 
 <script>
-    function showMap(id) {
-        if ($('#'+id).hasClass('map')) {
-            $('#'+id).removeClass('map');
-            $('#'+id).addClass('map-hide');
-        } else {
-            $('#'+id).removeClass('map-hide');
-            $('#'+id).addClass('map');
-        }
-    }
+
+
     $('#companyForm').on('keyup',() => {
         var value = $('#companyForm').val();
         $("#link-send").attr("href", "https://www.google.com/maps/search/"+value);
+        if (value === '' || value === null) {
+            $("#link-send").attr('href', '#');
+        }
 
     });
+
 </script>
 
 @endsection

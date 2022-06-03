@@ -62,11 +62,11 @@
                                     <i class="far fa-file-alt"></i> rascunhos
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="far fa-trash-alt"></i> lixeira
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <!-- /.card-body -->

@@ -67,11 +67,11 @@
                                     <i class="far fa-file-alt"></i> rascunhos
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('dashboard-email-trash') }}" class="nav-link">
                                     <i class="far fa-trash-alt"></i> lixeira
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <!-- /.card-body -->
@@ -135,8 +135,9 @@
                     <div class="card-body p-0">
                         <div class="mailbox-read-info">
                             <h5>{{ $email['subject'] }}</h5>
-                            <h6>From: {{ $email['from'] }}
+                            <h6><strong>De</strong> {{ $email['from'] }}
                                 <span class="mailbox-read-time float-right">{{ $email['created_at'] }}</span></h6>
+                            <h6><strong>Email:</strong> {{ $email['email'] }}</h6>
                         </div>
                         <!-- /.mailbox-controls -->
                         <div class="mailbox-read-message">
