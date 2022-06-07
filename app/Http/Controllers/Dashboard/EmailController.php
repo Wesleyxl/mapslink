@@ -163,10 +163,11 @@ class EmailController extends Controller
         try {
             //code...
             $email->delete();
-            return redirect()->back()->with('warning', 'Email deletado com sucesso!');
+            return redirect('adm/emails')->with('warning', 'Email deletado com sucesso!');
         } catch (\Throwable $th) {
             //throw $th;
-            return redirect()->back()->with('error', 'Desculpe, algo deu errado durante sua solicitação. Tente outra vez');
+            return redirect('adm/email')->with('warning', 'Email deletado com sucesso!');
+            // return redirect('adm/email')->with('error', 'Desculpe, algo deu errado durante sua solicitação. Tente outra vez');
         }
     }
 

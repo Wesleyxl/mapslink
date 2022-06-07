@@ -135,7 +135,7 @@
         </div>
     </div>
     <div class="copy-area">
-        <p><i class="fa-regular fa-copyright"></i> copyright {{ $website['copyright_year'] }} - GMapslink <span>Desenvolvido por <a href="https://www.wesley-alves.com">Wesley Alves</a></span></p>
+        <p><i class="fa-regular fa-copyright"></i> copyright {{ $website['copyright_year'] }} - GMapslink</p>
     </div>
 </footer>
 <!-- end footer -->

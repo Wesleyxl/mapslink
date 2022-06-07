@@ -149,7 +149,7 @@
 
                     <!-- /.card-footer -->
                     <div class="card-footer">
-                        <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
+                        <a href="{{ route('dashboard-email-destroy', ['id' => $email['id']]) }}" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</a>
                         <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Print</button>
                     </div>
                     <!-- /.card-footer -->
