@@ -26,4 +26,15 @@ class WebsiteHomeController extends Controller
             'companies' => $companies
         ));
     }
+
+    public function search(Request $request)
+    {
+        $companies = Company::orderBy('name', 'asc')
+            ->where('name', 'like', '%' . $request['data'] . "%")
+            ->get()->all();
+
+        return view('pages.home.search', array(
+            'companies' => $companies
+        ));
+    }
 }

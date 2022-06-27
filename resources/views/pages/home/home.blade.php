@@ -19,59 +19,42 @@
     <div class="container">
         <div class="form">
             <form id="form">
+                @csrf
                 <div class="form-group">
                     <label for="company">Localize uma empresa aqui</label>
-                    <input type="text" id="companyForm" name="company" class="form-control" placeholder="Encontre uma empresa">
+                    <input type="text" id="companyForm" name="search" class="form-control" placeholder="Encontre uma empresa">
                 </div>
-                <a target="_blank" id="link-send" href="#" class="btn btn-secondary">Buscar Empresa <img src="assets/icon-map.svg" alt=""></a>
+                <button type="button" id="btn-form" class="btn btn-secondary">Buscar Empresa</button>
+                {{-- <a target="_blank" id="link-send" href="#" class="btn btn-secondary">Buscar Empresa <img src="assets/icon-map.svg" alt=""></a> --}}
             </form>
         </div>
     </div>
 </section>
 <!-- Content -->
 <section id="content" class="company">
-    <div class="container">
-        @if(count($companies) >= 1)
-            @foreach ($companies as $company)
-            <div class="row">
-                <div class="company-card">
-                    <div class="title">
-                        <div class="img">
-                            <img src="{{ URL::to($company['img']) }}" alt="">
-                        </div>
-                        <div class="name">
-                            <h3>{{ $company['name'] }}</h3>
-                            <p><strong>Descrição: </strong> {{ $company['description'] }}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="btn-area">
-                        <a target="_blank" href="{{ $company['map'] }}" class="btn btn-primary">Visualizar no mapa</a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        @else
-        <div class="row">
-            <div class="company-card">
-                <P>Não há empresas cadastradas</P>
-            </div>
-        @endif
-    </div>
+
 </section>
 <!-- end content -->
 
 <script>
 
 
-    $('#companyForm').on('keyup',() => {
-        var value = $('#companyForm').val();
-        $("#link-send").attr("href", "https://www.google.com/maps/search/"+value);
-        if (value === '' || value === null) {
-            $("#link-send").attr('href', '#');
-        }
-
-    });
+    $('#btn-form').on('click', () => {
+        var search = $('#companyForm').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "Post",
+            url: "{{ url('/buscar/empresas') }}",
+            data: {data: search},
+            success: function(retorno){
+                $('#content').html(retorno);
+            }
+        });
+    })
 
 </script>
 
